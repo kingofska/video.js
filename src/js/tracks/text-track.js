@@ -34,9 +34,11 @@ vjs.TextTrack = function(options) {
   tt = this;
   if (vjs.IS_IE8) {
     tt = document.createElement('custom');
-
+  
     for (prop in vjs.TextTrack.prototype) {
-      tt[prop] = vjs.TextTrack.prototype[prop];
+      if(vjs.TextTrack.hasOwnProperty(prop)){
+       tt[prop] = vjs.TextTrack.prototype[prop];  
+      }
     }
   }
 
